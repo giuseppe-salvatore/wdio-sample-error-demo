@@ -1,14 +1,32 @@
+// {
+//     "compilerOptions": {
+//         "moduleResolution": "node",
+//         "module": "ESNext",
+//         "types": [
+//             "node",
+//             "@wdio/globals/types",
+//             "expect-webdriverio",
+//             "@wdio/cucumber-framework",
+//             "@wdio/selenium-standalone-service"
+//         ],
+//         "target": "es2022"
+//     }
+// }
 {
     "compilerOptions": {
+        "target": "ES2019",
+        "module": "CommonJS",
         "moduleResolution": "node",
-        "module": "ESNext",
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "suppressExcessPropertyErrors": true,
         "types": [
             "node",
+            "webdriverio/async",
             "@wdio/globals/types",
-            "expect-webdriverio",
             "@wdio/cucumber-framework",
+            "expect-webdriverio",
             "@wdio/selenium-standalone-service"
-        ],
-        "target": "es2022"
+        ]
     }
 }

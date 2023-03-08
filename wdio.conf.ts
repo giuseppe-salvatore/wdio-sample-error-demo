@@ -8,8 +8,10 @@ export const config: Options.Testrunner = {
     // WebdriverIO supports running e2e tests as well as unit and component tests.
     runner: 'local',
     autoCompileOpts: {
+        autoCompile: true,
         tsNodeOpts: {
-            project: './tsconfig.json'
+            project: './tsconfig.json',
+            transpileOnly: true
         }
     },
     
@@ -80,7 +82,7 @@ export const config: Options.Testrunner = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'error',
+    logLevel: 'info',
     //
     // Set specific log levels per logger
     // loggers:
@@ -120,7 +122,20 @@ export const config: Options.Testrunner = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['selenium-standalone'],
+    //services: ['selenium-standalone'],
+    services: [
+        [
+          'selenium-standalone',
+          {
+            drivers: {
+              chrome: '110.0.5481.77',
+            },
+            logs: 'logs',
+          },
+        ],
+      ],
+    
+    
     
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
